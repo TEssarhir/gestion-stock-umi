@@ -163,24 +163,26 @@ INSERT INTO Equipement (nom, description, catégorie, état, seuil_alerte, qr_co
         6
     );
 
-INSERT INTO Utilisateur (nom, prenom, email, mot_de_passe, rôle, date_inscription) VALUES
-    ('El Amrani', 'Yassine', 'yassine.elamrani@umi.ac.ma', 'pass123', 'etudiant', '2024-10-01'),
-    ('Bennani', 'Fatima', 'fatima.bennani@umi.ac.ma', 'pass456', 'etudiant', '2024-10-05'),
-    ('Touhami', 'Hamza', 'hamza.touhami@umi.ac.ma', 'pass789', 'technicien', '2023-12-01'),
-    ('Zerouali', 'Naima', 'naima.zerouali@umi.ac.ma', 'pass999', 'responsable', '2023-01-10');
+INSERT INTO Utilisateur (nom, prenom, email, mot_de_passe, rôle, date_inscription)
+    VALUES
+        ('El Amrani', 'Yassine', 'yassine.elamrani@umi.ac.ma', 'pass123', 'etudiant', '2024-10-01'),
+        ('Bennani', 'Fatima', 'fatima.bennani@umi.ac.ma', 'pass456', 'etudiant', '2024-10-05'),
+        ('Touhami', 'Hamza', 'hamza.touhami@umi.ac.ma', 'pass789', 'technicien', '2023-12-01'),
+        ('Zerouali', 'Naima', 'naima.zerouali@umi.ac.ma', 'pass999', 'responsable', '2023-01-10');
 
-INSERT INTO Notification (id_utilisateur, type, message, date_envoi) VALUES
-    (1, 'alerte_stock', 'Le stock de Raspberry Pi est critique.', '2025-04-01 08:30:00'),
-    (2, 'confirmation', 'Votre réservation a été approuvée.', '2025-04-02 09:00:00'),
-    (3, 'rappel', "N'oubliez pas de rendre le matériel demain.', '2025-04-03 18:00:00");
+INSERT INTO Notification (id_utilisateur, type, message, date_envoi)
+    VALUES
+        (1, 'alerte_stock', 'Le stock de Raspberry Pi est critique.', '2025-04-01 08:30:00'),
+        (2, 'confirmation', 'Votre réservation a été approuvée.', '2025-04-02 09:00:00'),
+        (3, 'rappel', "N'oubliez pas de rendre le matériel demain.', '2025-04-03 18:00:00");
 
-INSERT INTO Reservation (id_utilisateur, date_debut, date_fin, statut, signature_responsable, qr_code_reservation) VALUES
-    (1, '2025-04-10 09:00:00', '2025-04-12 18:00:00', 'validée', 'signature_fatima.png', 'QR-RES-1001'),
-    (2, '2025-04-15 10:00:00', '2025-04-17 16:00:00', 'en_attente', NULL, 'QR-RES-1002');
+INSERT INTO Reservation (id_utilisateur, date_debut, date_fin, statut, signature_responsable, qr_code_reservation)
+    VALUES
+        (1, '2025-04-10 09:00:00', '2025-04-12 18:00:00', 'validée', 'signature_fatima.png', 'QR-RES-1001'),
+        (2, '2025-04-15 10:00:00', '2025-04-17 16:00:00', 'en_attente', NULL, 'QR-RES-1002');
 
 INSERT INTO Reservation_Equipement (id_reservation, id_equipement, quantite_demandée) VALUES
     (1, 1, 1),
     (1, 2, 2),
     (2, 1, 1);
  
-select * from Utilisateur ;

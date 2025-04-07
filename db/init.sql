@@ -1,5 +1,7 @@
 CREATE DATABASE IF NOT EXISTS gestion_materiel;
 USE gestion_materiel;
+
+-- Table Utilisateur
 CREATE TABLE Utilisateur (
     id_utilisateur INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100),
