@@ -5,19 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GP - Digital Solutions</title>
   <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/enhanced.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <header>
+  <header class="sticky-header">
     <div class="nav-container">
       <div class="logo">GP<span>.</span></div>
       <nav>
         <ul class="nav-links">
           <li><a class="active" href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -27,44 +28,87 @@
 
   <section class="hero">
     <div class="hero-content">
-      <h1>Powerful Digital<br>Solutions With GP<span>.</span></h1>
-      <p>We are team of talented digital marketers</p>
+      <h1 class="fade-in hidden">Powerful Digital<br>Solutions With GP<span>.</span></h1>
+      <!-- <p class="fade-in-delay hidden">We are a team of talented digital marketers</p> -->
+      <a href="#contact" class="btn bounce hidden">Contact Us</a>
+    </div>
+  </section>
 
-      <div class="features">
-        <div class="feature">
-          <div class="icon">👥</div>
-          <h4>Lorem Ipsum</h4>
-        </div>
-        <div class="feature">
-          <div class="icon">🎯</div>
-          <h4>Dolor Sitena</h4>
-        </div>
-        <div class="feature">
-          <div class="icon">➕</div>
-          <h4>Sedare Perspiciatis</h4>
-        </div>
-        <div class="feature">
-          <div class="icon">📄</div>
-          <h4>Magni Dolores</h4>
-        </div>
-        <div class="feature">
-          <div class="icon">💎</div>
-          <h4>Nemos Enimade</h4>
-        </div>
+  <section id="about" class="about-section">
+    <h2>About Us</h2>
+    <p>We provide cutting-edge digital solutions to help businesses grow and succeed in the digital age.</p>
+    <div class="stats">
+      <div class="stat">
+        <h3 class="counter" data-target="500">0</h3>
+        <p>Projects Completed</p>
+      </div>
+      <div class="stat">
+        <h3 class="counter" data-target="300">0</h3>
+        <p>Happy Clients</p>
+      </div>
+      <div class="stat">
+        <h3 class="counter" data-target="50">0</h3>
+        <p>Team Members</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="services-section">
+    <h2>Our Services</h2>
+    <div class="features">
+      <div class="feature slide-in">
+        <div class="icon">👥</div>
+        <h4>Consulting</h4>
+        <p>Expert advice to optimize your digital strategy.</p>
+      </div>
+      <div class="feature slide-in">
+        <div class="icon">🎯</div>
+        <h4>Marketing</h4>
+        <p>Targeted campaigns to reach your audience.</p>
+      </div>
+      <div class="feature slide-in">
+        <div class="icon">➕</div>
+        <h4>Development</h4>
+        <p>Custom software solutions tailored to your needs.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="testimonials-section">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonials">
+      <div class="testimonial fade-in">
+        <p>"hh"</p>
+        <h4>- Tarik hh</h4>
+      </div>
+      <div class="testimonial fade-in">
+        <p>"tfo"</p>
+        <h4>- Aya lcute</h4>
+      </div>
+      <div class="testimonial fade-in">
+        <p>""</p>
+        <h4>- Mariam mimi</h4>
       </div>
     </div>
   </section>
 
   <section id="contact" class="contact-section">
-    <h2>Contactez-nous maintenant</h2>
+    <h2>Contact Us</h2>
     <form class="contact-form">
-      <input type="text" name="name" placeholder="Nom" required>
+      <input type="text" name="name" placeholder="Name" required>
       <input type="email" name="email" placeholder="Email" required>
-      <input type="text" name="phone" placeholder="Téléphone" required>
+      <input type="text" name="phone" placeholder="Phone" required>
       <textarea name="message" placeholder="Message" required></textarea>
-      <button type="submit">Envoyer</button>
+      <button type="submit">Send</button>
     </form>
   </section>
 
+  <footer>
+    <p>&copy; 2025 GP Digital Solutions. All rights reserved.</p>
+  </footer>
+
+  <button id="back-to-top" title="Back to Top">↑</button>
+
+  <script src="../js/enhanced.js"></script>
 </body>
 </html>
