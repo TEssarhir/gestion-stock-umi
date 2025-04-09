@@ -9,13 +9,13 @@ body {
   font-family: 'Inter', sans-serif;
   color: #1e2a39; /* dark navy text */
   background: url('../svg/background.svg') no-repeat center center/cover;
+  background-attachment: fixed; /* Makes the background image fixed */
   height: 100vh;
 }
 
 header {
   background: rgba(248, 244, 240, 0.85); /* blanc cassé overlay */
   padding: 20px 40px;
-  position: fixed;
   width: 100%;
   top: 0;
   z-index: 100;
