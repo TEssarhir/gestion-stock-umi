@@ -46,14 +46,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // Fetch equipment for listing and filtering
-$filter = isset($_GET['filter']) ? $_GET['filter'] : '';
-$query = "SELECT * FROM Equipement";
-if ($filter) {
-    $query .= " WHERE catégorie = ?";
+$filterCategory = isset($_GET['filter_category']) ? $_GET['filter_category'] : '';
+$filterStatus = isset($_GET['filter_status']) ? $_GET['filter_status'] : '';
+
+$query = "SELECT * FROM Equipement WHERE 1=1";
+$params = [];
+$types = "";
+
+if ($filterCategory) {
+    $query .= " AND catégorie = ?";
+    $params[] = $filterCategory;
+    $types .= "s";
 }
+
+if ($filterStatus) {
+    $query .= " AND état = ?";
+    $params[] = $filterStatus;
+    $types .= "s";
+}
+
 $stmt = $conn->prepare($query);
-if ($filter) {
-    $stmt->bind_param("s", $filter);
+if (!empty($params)) {
+    $stmt->bind_param($types, ...$params);
 }
 $stmt->execute();
 $result = $stmt->get_result();
@@ -98,23 +112,34 @@ $conn->close();
         </form>
 
         <h3>Equipment List</h3>
-        <form method="GET">
-            <select name="filter">
-                <option value="">All Categories</option>
-                <option value="Serveur">Serveur</option>
-                <option value="Onduleur">Onduleur</option>
-                <option value="Carte Graphique">Carte Graphique</option>
-                <!-- Add more categories as needed -->
-            </select>
-            <button type="submit">Filter</button>
-        </form>
         <table border="1">
             <tr>
                 <th>ID</th>
                 <th>Name</th>
                 <th>Description</th>
-                <th>Category</th>
-                <th>Status</th>
+                <th>
+                    Category
+                    <form method="GET" style="display:inline;">
+                        <select name="filter_category" onchange="this.form.submit()">
+                            <option value="">All</option>
+                            <option value="Serveur" <?= $filterCategory === "Serveur" ? "selected" : "" ?>>Serveur</option>
+                            <option value="Onduleur" <?= $filterCategory === "Onduleur" ? "selected" : "" ?>>Onduleur</option>
+                            <option value="Carte Graphique" <?= $filterCategory === "Carte Graphique" ? "selected" : "" ?>>Carte Graphique</option>
+                            <!-- Add more categories as needed -->
+                        </select>
+                    </form>
+                </th>
+                <th>
+                    Status
+                    <form method="GET" style="display:inline;">
+                        <select name="filter_status" onchange="this.form.submit()">
+                            <option value="">All</option>
+                            <option value="disponible" <?= $filterStatus === "disponible" ? "selected" : "" ?>>Available</option>
+                            <option value="hors_service" <?= $filterStatus === "hors_service" ? "selected" : "" ?>>Out of Service</option>
+                            <option value="en_reparation" <?= $filterStatus === "en_reparation" ? "selected" : "" ?>>Under Repair</option>
+                        </select>
+                    </form>
+                </th>
                 <th>Quantity</th>
             </tr>
             <?php foreach ($equipements as $equipement): ?>
