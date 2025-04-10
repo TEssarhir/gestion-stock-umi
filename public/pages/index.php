@@ -22,7 +22,7 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-      <a class="btn" href="login.html">Get Started</a>
+      <a class="btn" href="login.php">Get Started</a>
     </div>
   </header>
 
